@@ -1,0 +1,54 @@
+Consulta 2.1
+SELECT Apellido FROM empleados WHERE Activo = 1;
+
+Consulta 2.2
+SELECT DISTINCT Apellido FROM empleados WHERE Activo = 1 ORDER BY Apellido;
+
+Consulta 2.3
+SELECT * FROM empleados WHERE Activo = 1 AND Apellido = 'Lopez';
+
+Consulta 2.4
+SELECT * FROM empleados WHERE Activo = 1 AND Apellido in ('Lopez','Perez');
+
+Consulta 2.5
+SELECT * FROM empleados WHERE Activo = 1 AND Nro_Departamento = 14;
+
+Consulta 2.6
+SELECT * FROM empleados WHERE Activo = 1 and (Nro_Departamento = 37 or Nro_Departamento = 77);
+
+Consulta 2.7
+SELECT * FROM empleados WHERE Activo = 1 AND Apellido LIKE 'p%';
+
+Consulta 2.8
+select sum(Presupuesto) as presupuesto_total FROM departamentos;
+
+Consulta 2.9
+SELECT a.DNI, a.Nombre, a.Apellido, a.Nro_Departamento, b.Nombre as Nombre_Departamento, b.Presupuesto from empleados a, departamentos b WHERE a.Activo = 1 and a.Nro_Departamento = b.Numero;
+
+Consulta 2.10
+SELECT a.Nombre, a.Apellido, b.Nombre as Nombre_Departamento, b.Presupuesto from empleados a, departamentos b WHERE a.Nro_Departamento = b.Numero and a.Activo = 1 ;
+
+
+Consulta 2.11
+SELECT a.Nombre, a.Apellido FROM empleados a, departamentos b WHERE a.Nro_Departamento = b.Numero and a.Activo = 1 and b.Presupuesto > 60000;
+
+Consulta 2.12
+INSERT INTO `departamentos` (`Numero`, `Nombre`, `Presupuesto`) VALUES ( '11', 'Calidad', '40000');
+
+INSERT INTO `empleados` (`id`, `DNI`, `Nombre`, `Apellido`, `Nro_Departamento`, `Activo`) VALUES (NULL, '89267109', 'Esther', 'Vazquez', '11', '1');
+
+Consulta 2.13
+UPDATE departamentos SET Presupuesto = Presupuesto * .9;
+
+Consulta 2.14
+UPDATE empleados SET nro_departamento = 14 WHERE nro_departamento = 77;
+
+Consulta 2.15
+UPDATE empleados SET Activo = 0 where Nro_Departamento = 14;
+
+Consulta 2.16
+UPDATE empleados SET Activo = 0 WHERE Nro_Departamento in (SELECT numero  FROM departamentos WHERE presupuesto > 90000)
+
+
+
+
